@@ -76,7 +76,7 @@ class ClassComponent extends React.Component {
   render() {
     const { title } = this.state;
     const { hide } = this.props;
-
+    console.log('a');
     return (
       <div className="class-component">
         <div className="class-component-title">{hide ? <></> : title}</div>
