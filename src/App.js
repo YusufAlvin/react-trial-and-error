@@ -1,14 +1,11 @@
 import React from 'react';
 import './App.scss';
-import ClassComponent from './contents/ClassComponent/ClassComponent';
+import SelectableFast from './contents/SelectableFast/SelectableFast';
 
 const App = () => {
   return (
     <div className='app-container'>
-      <ClassComponent
-        title="Pass From Props"
-        open
-      />
+      <SelectableFast />
     </div>
   )
 };

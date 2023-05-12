@@ -1,0 +1,31 @@
+.selectablefast-container {
+  box-sizing: border-box;
+  padding: 16px;
+
+  .selectable-selectbox {
+    border: 1px dashed black;
+  }
+}
+
+.selectablefast-square-container {
+  box-sizing: border-box;
+  width: calc(100vw - 34px);
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.selectablefast-square {
+  width: 100px;
+  height: 100px;
+  background-color: lightseagreen;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: darkmagenta;
+
+  &-selected {
+    background-color: darkcyan;
+  }
+}
