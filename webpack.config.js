@@ -1,7 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+// const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
@@ -9,14 +9,14 @@ module.exports = {
   entry: './src/index.js',
   output: {
     path: path.resolve(__dirname, 'build'),
-    filename: 'js/[name].[hash].js',
+    filename: 'js/[name].[contenthash].js',
     publicPath: '/',
   },
   optimization: {
     // moduleIds: 'natural',
     minimize: true,
     minimizer: [
-      new UglifyJsPlugin(),
+      // new UglifyJsPlugin(),
       new TerserPlugin(),
     ],
     runtimeChunk: 'single',
@@ -26,6 +26,12 @@ module.exports = {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
           chunks: 'all',
+        },
+        styles: {
+          name: 'styles',
+          test: /\.(css|scss|sass)$/,
+          chunks: 'all',
+          enforce: true,
         },
       },
     },
@@ -66,7 +72,7 @@ module.exports = {
         test: /\.(css|scss|sass)$/,
         exclude: /\.module.(s(a|c)ss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          'style-loader',
           'css-loader',
           'sass-loader'
         ]

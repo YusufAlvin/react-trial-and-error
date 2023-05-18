@@ -1,11 +1,11 @@
 import React from 'react';
+import GenerateKeyExample from './contents/GenerateKeyExample/GenerateKeyExample';
 import './App.scss';
-import SelectableFast from './contents/SelectableFast/SelectableFast';
 
 const App = () => {
   return (
     <div className='app-container'>
-      <SelectableFast />
+      <GenerateKeyExample />
     </div>
   )
 };
