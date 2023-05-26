@@ -1,11 +1,13 @@
 import React from 'react';
-import GenerateKeyExample from './contents/GenerateKeyExample/GenerateKeyExample';
 import './App.scss';
+import Labware from './components/Labware/Labware';
+import GridExample from './contents/GridExample/GridExample';
 
 const App = () => {
   return (
     <div className='app-container'>
-      <GenerateKeyExample />
+      <Labware />
+      {/* <GridExample /> */}
     </div>
   )
 };
