@@ -24,7 +24,7 @@ const RechartExample = () => {
     const seconds = currentTime.getSeconds();
     const randomNumber1 = Math.floor(Math.random() * 20) + 1;
     const randomNumber2 = Math.floor(Math.random() * 19) + 2;
-    const randomNumber3 = Math.floor(Math.random() * 28) + 3;
+    const randomNumber3 = Math.floor(Math.random() * 22) + 3;
     const randomNumber4 = Math.floor(Math.random() * 17) + 5;
     const interval = setInterval(() => {
       setState((prevState) => ({
@@ -46,22 +46,19 @@ const RechartExample = () => {
       clearInterval(interval);
     }
   });
-  console.log('state.data :>> ', state.data);
+
   return (
     <div className='rechartsexample'>
       <LineChart
         width={500}
         height={300}
         data={state.data}
-        margin={{
-          top: 5,
-          right: 30,
-          left: 20,
-          bottom: 5,
-        }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="time" domain={[0, 1]} />
+        <XAxis
+          dataKey="time"
+          interval='preserveStart'
+        />
         <YAxis />
         <Tooltip />
         <Legend />
