@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import RechartExample from './contents/Recharts/RechartsExample';
+import CustomHookPlayground from './contents/CustomHookPlayground';
 
 const App = () => {
   return (
     <div className='app-container'>
-      <RechartExample />
+      <CustomHookPlayground />
     </div>
   )
 };

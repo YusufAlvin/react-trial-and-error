@@ -1,0 +1,26 @@
+.cssplayground {
+  box-sizing: border-box;
+  display: grid;
+  width: 100%;
+  grid-template-columns: 1fr 1fr;
+
+  .item {
+    box-sizing: border-box;
+    width: 200px;
+    height: 200px;
+    background-color: lightcoral;
+
+    .square {
+      box-sizing: border-box;
+      width: 100px;
+      height: 100px;
+      background-color: black;
+    }
+
+    .container {
+      .square {
+        background-color: red;
+      }
+    }
+  }
+}
