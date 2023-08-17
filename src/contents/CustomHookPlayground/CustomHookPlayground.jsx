@@ -1,6 +1,6 @@
 import React from 'react';
 import './CustomHookPlayground.scss';
-import { useCountPlusFive } from './customHooks';
+import {useCountPlusFive} from './customHooks';
 
 const CustomHookPlayground = () => {
   const [state, changeValue] = useCountPlusFive(0);
@@ -10,11 +10,11 @@ const CustomHookPlayground = () => {
   };
 
   return (
-    <div className='CustomHookPlayground'>
-      <div className='square'>{state}</div>
+    <div className="CustomHookPlayground">
+      <div className="square">{state}</div>
       <button onClick={handleClick}>Click</button>
     </div>
-  )
+  );
 };
 
 export default CustomHookPlayground;

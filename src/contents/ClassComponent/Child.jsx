@@ -1,16 +1,12 @@
-import React from "react";
+import React from 'react';
 
 class Child extends React.Component {
   componentWillUnmount = () => {
     console.log('componentWillUnmount');
-  }
+  };
 
   render() {
-    return (
-      <div className="class-component-child">
-        Child
-      </div>
-    )
+    return <div className="class-component-child">Child</div>;
   }
 }
 

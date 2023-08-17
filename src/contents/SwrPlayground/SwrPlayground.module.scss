@@ -1,0 +1,29 @@
+.container {
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 40% 25% 25%;
+  column-gap: 8px;
+  height: calc(100vh - 35px);
+}
+
+.table-container {
+  box-sizing: border-box;
+
+  & thead {
+    display: block;
+    position: relative;
+    width: 100%;
+  }
+
+  & tbody {
+    display: block;
+    overflow-y: scroll;
+    max-height: calc(100vh - 50px);
+  }
+}
+
+.edit-post {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}

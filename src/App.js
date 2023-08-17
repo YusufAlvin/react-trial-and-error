@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.scss';
-import CustomHookPlayground from './contents/CustomHookPlayground';
+import SwrPlayground from './contents/SwrPlayground';
 
 const App = () => {
   return (
-    <div className='app-container'>
-      <CustomHookPlayground />
+    <div className="app-container">
+      <SwrPlayground />
     </div>
-  )
+  );
 };
 
 export default App;

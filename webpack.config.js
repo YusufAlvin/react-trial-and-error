@@ -78,6 +78,19 @@ module.exports = {
         ]
       },
       {
+        test: /\.module\.(s(a|c)ss)$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: true,
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      {
         test: /\.svg$/,
         use: [
           '@svgr/webpack',

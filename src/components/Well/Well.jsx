@@ -4,10 +4,10 @@ import './Well.scss';
 
 const Well = () => {
   return (
-    <div className='well'>
+    <div className="well">
       <></>
     </div>
-  )
+  );
 };
 
 // Well.propTypes = {

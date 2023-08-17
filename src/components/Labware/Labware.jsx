@@ -1,7 +1,7 @@
 // import PropTypes from 'prop-types';
 import React from 'react';
 import './Labware.scss';
-import { generateUniqueKey } from '../../libs/generateKey';
+import {generateUniqueKey} from '../../libs/generateKey';
 import Well from '../Well/Well';
 
 const Labware = () => {
@@ -44,7 +44,6 @@ const Labware = () => {
     }));
   }, []);
 
-
   const generateWells = () => {
     const wells = [];
 
@@ -53,9 +52,7 @@ const Labware = () => {
         // const charIndex = String.fromCharCode(65 + cols - iCol);
         const key = generateUniqueKey('well');
 
-        wells.push(
-          <Well key={key} />
-        )
+        wells.push(<Well key={key} />);
       }
     }
 
@@ -67,11 +64,11 @@ const Labware = () => {
 
     for (let index = 0; index < rows; index++) {
       const key = generateUniqueKey('side-index');
-      indexes.push((
-        <div key={key} className='labware-side-index'>
+      indexes.push(
+        <div key={key} className="labware-side-index">
           {index + 1}
         </div>
-      ));
+      );
     }
 
     return indexes;
@@ -80,35 +77,35 @@ const Labware = () => {
   const generateTopIndexes = () => {
     const indexes = [];
 
-    for (let index = cols; index > 0; index-=1) {
+    for (let index = cols; index > 0; index -= 1) {
       const char = String.fromCharCode(64 + index);
       const key = generateUniqueKey('top-index');
-      indexes.push((
-        <div key={key} className='labware-top-index'>
+      indexes.push(
+        <div key={key} className="labware-top-index">
           {char}
         </div>
-      ));
+      );
     }
 
     return indexes;
   };
 
   return (
-    <div 
-      className='labware'
+    <div
+      className="labware"
       style={{
         gridTemplateColumns: `repeat(${cols}, 1fr) auto`,
         gridTemplateRows: `auto repeat(${rows}, 1fr)`,
       }}
     >
-      <div ref={topIndexesContainerRef} className='labware-top-index-container'>
+      <div ref={topIndexesContainerRef} className="labware-top-index-container">
         {generateTopIndexes()}
       </div>
-      <div ref={sideIndexesContainerRef} className='labware-side-index-container'>
+      <div ref={sideIndexesContainerRef} className="labware-side-index-container">
         {generateSideIndexes()}
       </div>
-      <div 
-        className='labware-wells-container'
+      <div
+        className="labware-wells-container"
         style={{
           gridColumnEnd: cols + 1,
           gridRowEnd: rows + 2,
@@ -121,7 +118,7 @@ const Labware = () => {
         {generateWells()}
       </div>
     </div>
-  )
+  );
 };
 
 // Labware.propTypes = {

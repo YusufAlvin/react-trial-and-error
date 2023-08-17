@@ -1,20 +1,20 @@
-import React, { createRef } from "react";
-import { connect } from 'react-redux';
-import { bindActionCreators } from "redux";
-import Child from "./Child";
+import React, {createRef} from 'react';
+import {connect} from 'react-redux';
+import {bindActionCreators} from 'redux';
+import Child from './Child';
 import * as AppStateAction from '../../stores/actions/appStateAction';
 import './ClassComponent.scss';
 
 function mapStateToProps(state, ownProps) {
   return {
     hide: state.appState.hide,
-  }
-};
+  };
+}
 
 function mapDispatchToProps(dispatch, ownProps) {
   return {
     appStateAction: bindActionCreators(AppStateAction, dispatch),
-  }
+  };
 }
 
 class ClassComponent extends React.Component {
@@ -23,7 +23,7 @@ class ClassComponent extends React.Component {
     this.state = {
       title: 'title',
       open: true,
-    }
+    };
   }
 
   inputRef = createRef();
@@ -32,30 +32,30 @@ class ClassComponent extends React.Component {
   componentDidMount = () => {
     console.log('componentDidMount');
     console.log('this.props.hideLabel :>> ', this.props.hideLabel);
-  }
+  };
 
   getSnapshotBeforeUpdate = (prevProps, prevState) => {
     console.log('getSnapshotBeforeUpdate');
     console.log('prevProps :>> ', prevProps);
     console.log('prevState :>> ', prevState);
-  }
+  };
 
   componentDidUpdate = () => {
     console.log('componentDidUpdate');
     console.log('this.state :>> ', this.state);
-  }
+  };
 
   // for updating state based on props
   static getDerivedStateFromProps = (props, state) => {
-    const { title } = props;
+    const {title} = props;
     return {
       ...state,
       title,
-    }
-  }
+    };
+  };
 
   handleClick = () => {
-    const { hide, appStateAction } = this.props;
+    const {hide, appStateAction} = this.props;
 
     if (hide) {
       appStateAction.hide();
@@ -67,15 +67,15 @@ class ClassComponent extends React.Component {
     //   ...this.state,
     //   open: !this.state.open,
     // });
-  }
+  };
 
   handleClick2 = () => {
     this.inputRef.current.focus();
-  }
+  };
 
   render() {
-    const { title } = this.state;
-    const { hide } = this.props;
+    const {title} = this.state;
+    const {hide} = this.props;
     console.log('a');
     return (
       <div className="class-component">
@@ -87,7 +87,7 @@ class ClassComponent extends React.Component {
           <button onClick={this.handleClick2}>Focus the input</button>
         </div>
       </div>
-    )
+    );
   }
 }
 

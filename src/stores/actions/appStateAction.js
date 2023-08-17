@@ -1,4 +1,4 @@
-import { appStateActionEnum } from "../../constants/actionType";
+import {appStateActionEnum} from '../../constants/actionType';
 
 export const hide = () => ({
   type: appStateActionEnum.HIDE,

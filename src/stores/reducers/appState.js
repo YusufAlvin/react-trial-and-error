@@ -1,4 +1,4 @@
-import { appStateActionEnum } from "../../constants/actionType";
+import {appStateActionEnum} from '../../constants/actionType';
 
 const initialState = {
   hide: false,
@@ -10,12 +10,12 @@ const appStateReducer = (state = initialState, action) => {
       return {
         ...state,
         hide: action.hide,
-      }
+      };
     }
     default: {
       return state;
     }
   }
-}
+};
 
 export default appStateReducer;

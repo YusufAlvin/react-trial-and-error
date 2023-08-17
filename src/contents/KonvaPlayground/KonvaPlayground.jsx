@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stage, Layer, Arrow } from 'react-konva';
+import {Stage, Layer, Arrow} from 'react-konva';
 import './KonvaPlayground.scss';
 
 const KonvaPlayground = () => {
@@ -15,8 +15,8 @@ const KonvaPlayground = () => {
   //   }
   // }, []);
 
-  const startPoint = { x: 50, y: 200 };
-  const endPoint = { x: 500, y: 510 };
+  const startPoint = {x: 50, y: 200};
+  const endPoint = {x: 500, y: 510};
   const curvedPoint = {x: 400, y: 200};
 
   const generateCurvePoint = () => {
@@ -33,13 +33,13 @@ const KonvaPlayground = () => {
       controlY = controlY * -1;
     }
 
-    return { x: controlX, y: controlY };
+    return {x: controlX, y: controlY};
   };
 
   console.log('generateCurvePoint() :>> ', generateCurvePoint());
 
   return (
-    <div className='konvaplayground'>
+    <div className="konvaplayground">
       <Stage width={window.innerWidth} height={window.innerHeight}>
         <Layer>
           <Arrow
@@ -51,7 +51,7 @@ const KonvaPlayground = () => {
               // generateCurvePoint().x,
               // generateCurvePoint().y,
               endPoint.x,
-              endPoint.y
+              endPoint.y,
             ]} // Specify the starting and ending points of the arrow
             // ref={arrowRef}
             // points={[50, 50, 150, 100, 250, 50]} // Define the points to create the curve

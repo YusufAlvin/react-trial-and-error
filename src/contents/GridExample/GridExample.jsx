@@ -1,6 +1,6 @@
 import React from 'react';
 import './GridExample.scss';
-import { generateUniqueKey } from '../../libs/generateKey';
+import {generateUniqueKey} from '../../libs/generateKey';
 
 const GridExample = () => {
   const genereateDummyData = () => {
@@ -14,20 +14,17 @@ const GridExample = () => {
   };
 
   return (
-    <div className='grid-example'>
-
-      {
-        genereateDummyData().map(() => {
-          const key = generateUniqueKey('grid-example-item');
-          return (
-            <div key={key} className='grid-example-item'>
-              <></>
-            </div>
-          )
-        })
-      }
+    <div className="grid-example">
+      {genereateDummyData().map(() => {
+        const key = generateUniqueKey('grid-example-item');
+        return (
+          <div key={key} className="grid-example-item">
+            <></>
+          </div>
+        );
+      })}
     </div>
-  )
+  );
 };
 
 export default GridExample;

@@ -1,23 +1,16 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { createSelectable } from 'react-selectable-fast';
+import {createSelectable} from 'react-selectable-fast';
 
-const Square = ({
-  selectableRef,
-  isSelected,
-  id,
-}) => {
+const Square = ({selectableRef, isSelected, id}) => {
   return (
-    <div 
+    <div
       ref={selectableRef}
-      className={[
-        'selectablefast-square',
-        isSelected ? 'selectablefast-square-selected' : ''
-      ].join(' ')}
+      className={['selectablefast-square', isSelected ? 'selectablefast-square-selected' : ''].join(' ')}
     >
       {id}
     </div>
-  )
+  );
 };
 
 Square.propTypes = {
