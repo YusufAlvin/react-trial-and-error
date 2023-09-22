@@ -5,20 +5,15 @@ import axios from 'axios';
 
 const url = 'http://localhost:3001/posts';
 
-const fetcher = (url) => axios.get(url).then((res) => res.data);
-
-// const usePost = (id) => {
-//   const url = `https://jsonplaceholder.typicode.com/todos/${id}`;
-//   const { data, error, isLoading } = useSWR(url, fetcher);
-
-//   return { data, error, isLoading };
-// }
+const fetcher = async (url) => {
+  const response = await axios.get(url);
+  return response.data;
+};
 
 const Table = () => {
-  const {data, error, isLoading} = useSWR(url, fetcher);
+  const {data} = useSWR(url, fetcher);
 
-  if (isLoading) return <>Loading...</>;
-  if (error) return <>Error</>;
+  if (!data) return <>Loading...</>;
 
   return (
     <div className={styles['table-container']}>
