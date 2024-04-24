@@ -1,0 +1,10 @@
+// import {render, screen, fireEvent} from '@testing-library/react';
+// import UnitTestPlayground from './UnitTestPlayground';
+
+// test('console.log is called when button is clicked', () => {
+//   render(<UnitTestPlayground />);
+//   const button = screen.getByText('Button');
+//   console.log = jest.fn();
+//   fireEvent.click(button);
+//   expect(console.log).toHaveBeenCalledWith('aaa');
+// });

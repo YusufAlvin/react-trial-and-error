@@ -1,0 +1,14 @@
+.scrollbale-playground {
+  width: 400px;
+  max-width: 400px;
+  height: 400px;
+  max-height: 400px;
+  overflow: auto;
+  margin-left: 600px;
+
+  &--content {
+    width: 500px;
+    height: 500px;
+    background-color: red;
+  }
+}

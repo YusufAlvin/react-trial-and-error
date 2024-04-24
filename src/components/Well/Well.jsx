@@ -2,10 +2,10 @@
 import React from 'react';
 import './Well.scss';
 
-const Well = () => {
+const Well = ({col, row, id}) => {
   return (
     <div className="well">
-      <></>
+      <>{id}</>
     </div>
   );
 };

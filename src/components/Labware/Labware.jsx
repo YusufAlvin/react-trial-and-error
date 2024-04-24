@@ -47,12 +47,14 @@ const Labware = () => {
   const generateWells = () => {
     const wells = [];
 
-    for (let iRow = 1; iRow <= rows; iRow += 1) {
-      for (let iCol = 1; iCol <= cols; iCol += 1) {
-        // const charIndex = String.fromCharCode(65 + cols - iCol);
-        const key = generateUniqueKey('well');
-
-        wells.push(<Well key={key} />);
+    for (let row = 0; row < rows; row++) {
+      for (let col = cols - 1; col >= 0; col--) {
+        const id = `${String.fromCharCode(64 + col + 1)}${row + 1}`;
+        wells.push({
+          col,
+          row,
+          id,
+        });
       }
     }
 
@@ -115,7 +117,9 @@ const Labware = () => {
           // rowGap: gridGap().rowGap,
         }}
       >
-        {generateWells()}
+        {generateWells().map((well) => (
+          <Well key={`well-${well.id}`} id={well.id} col={well.col} row={well.row} />
+        ))}
       </div>
     </div>
   );

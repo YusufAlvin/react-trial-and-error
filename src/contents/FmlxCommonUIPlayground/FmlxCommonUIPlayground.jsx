@@ -1,17 +1,34 @@
-// import PropTypes from 'prop-types';
-import React from 'react';
-import {FmlxTextBox} from 'fmlx-common-ui';
-import './FmlxCommonUIPlayground.module.scss';
+import React, {useRef} from 'react';
+import {FmlxBadge} from 'fmlx-common-ui';
+import './FmlxCommonUIPlayground.scss';
 
 const FmlxCommonUIPlayground = () => {
-  const handleClick = () => {
-    window.alert('textbox is cliced');
-  };
+  const anchorEl = useRef(null);
 
   return (
-    <div>
-      <FmlxTextBox mode="password" onClick={handleClick} />
-    </div>
+    <>
+      <FmlxBadge
+        anchorEl={anchorEl}
+        variant={'positive'}
+        size={'md'}
+        borderColor="black"
+        placement={{
+          horizontal: 'right',
+          vertical: 'top',
+        }}
+      />
+      <div
+        ref={anchorEl}
+        style={{
+          display: 'flex',
+          width: 100,
+          height: 100,
+          backgroundColor: 'lightcoral',
+        }}
+      >
+        <></>
+      </div>
+    </>
   );
 };
 

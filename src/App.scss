@@ -1,3 +1,23 @@
 .app-container {
   padding: 8px;
 }
+
+.plate-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.parent {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+  position: relative;
+  margin-left: 1000px;
+}
+
+.child {
+  position: absolute;
+  top: 0;
+  left: 10px;
+}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useRef} from 'react';
 import {SelectableGroup} from 'react-selectable-fast';
 import Square from './Square';
 import './SelectableFast.scss';
@@ -18,10 +18,13 @@ const generateData = () => {
 const SelectableFast = () => {
   const initialState = {
     selected: [],
+    mousePosition: {x: 0, y: 0},
   };
 
   // eslint-disable-next-line no-unused-vars
   const [state, setState] = React.useState(initialState);
+
+  const containerRef = useRef(null);
 
   const handleSelectionClear = (item) => {};
 
@@ -34,10 +37,12 @@ const SelectableFast = () => {
     }));
   };
 
-  const handleSelecting = (item) => {};
+  const handleSelecting = (items) => {
+    console.log('items[0]', items[0]);
+  };
 
   return (
-    <div className="selectablefast-container">
+    <div ref={containerRef} className="selectablefast-container">
       <SelectableGroup
         className="selectable-container"
         clickClassName="tick"
