@@ -1,11 +1,12 @@
 import React from 'react';
-import {useAppDispatch, useAppState} from './context';
-import {setCounter} from './actions';
+import useStateSelector from './reducer/useContextSelector';
+import {useAppDispatch} from './context/contextWithUseContextSelector';
+import {setCounter} from './reducer/actions';
 import './Counter.scss';
 
 const Counter = () => {
-  console.log('counter is rendering');
-  const {counter} = useAppState();
+  console.log('Counter is rendering');
+  const counter = useStateSelector((state) => state.counter);
   const dispatch = useAppDispatch();
 
   const onDecrementClickHandler = () => {

@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.scss';
-import ContextPlayground from './contents/ContextPlayground/ContextPlayground';
+import FmlxCommonUIPlayground from './contents/FmlxCommonUIPlayground/FmlxCommonUIPlayground';
 
 const App = () => {
   return (
     <div className="app-container">
-      <ContextPlayground />
+      <FmlxCommonUIPlayground />
     </div>
   );
 };

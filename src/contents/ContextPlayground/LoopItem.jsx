@@ -1,37 +1,36 @@
 import PropTypes from 'prop-types';
 import React, {memo} from 'react';
-import {useAppDispatch} from './context';
-import {setItemSelected} from './actions';
+import {setItemSelected} from './reducer/actions';
+import useStateSelector from './reducer/useContextSelector';
+import {useAppDispatch} from './context/contextWithUseContextSelector';
 
-const LoopItem = ({isSelected, id, title}) => {
-  console.log(`LoopItem title ${title} is rendering`);
+const LoopItem = ({id}) => {
+  const item = useStateSelector((state) => state.items.find((item) => item.id === id));
   const dispatch = useAppDispatch();
 
+  console.log(`LoopItem title ${item.title} is rendering`);
+
   const onSelectedClickHandler = () => {
-    dispatch(setItemSelected(id, !isSelected));
+    dispatch(setItemSelected(id, !item.isSelected));
   };
 
   return (
     <div
       id={id}
-      className={`loop-item-container ${isSelected ? 'loop-item-container-selected' : ''}`}
+      className={`loop-item-container ${item.isSelected ? 'loop-item-container-selected' : ''}`}
       onClick={onSelectedClickHandler}
     >
-      <>{title}</>
+      <>{item.title}</>
     </div>
   );
 };
 
 LoopItem.propTypes = {
   id: PropTypes.any,
-  isSelected: PropTypes.bool,
-  title: PropTypes.string,
 };
 
 LoopItem.defaultProps = {
-  isSelected: false,
-  id: 0,
-  title: '',
+  id: 1,
 };
 
 export default memo(LoopItem);

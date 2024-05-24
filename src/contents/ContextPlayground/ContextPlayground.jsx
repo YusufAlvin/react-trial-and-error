@@ -1,19 +1,17 @@
 import React from 'react';
-import ContextProvider from './ContextProvider';
 import Counter from './Counter';
-import OtherComponent from './OtherComponent';
-import './ContextPlayground.scss';
+import ContextProviderWithUseContextSelector from './context/ContextProviderWithUseContextSelector';
 import LoopExample from './LoopExample';
+import './ContextPlayground.scss';
 
 const ContextPlayground = () => {
   return (
-    <ContextProvider>
+    <ContextProviderWithUseContextSelector>
       <div className="context-playground--container">
         <Counter />
-        <OtherComponent />
         <LoopExample />
       </div>
-    </ContextProvider>
+    </ContextProviderWithUseContextSelector>
   );
 };
 

@@ -1,12 +1,13 @@
-import React from 'react';
-import {useAppDispatch, useAppState} from './context';
-import {setItems} from './actions';
+import React, {memo} from 'react';
+import {setItems} from './reducer/actions';
 import LoopItem from './LoopItem';
+import useStateSelector from './reducer/useContextSelector';
+import {useAppDispatch} from './context/contextWithUseContextSelector';
 
 const LoopExample = () => {
-  const items = useAppState((state) => state.items);
+  console.log('LoopExample');
+  const itemIds = useStateSelector((state) => state.items.map((item) => item.id));
   const dispatch = useAppDispatch();
-
   const generateItems = () => {
     const data = [];
     for (let index = 0; index < 10; index++) {
@@ -19,18 +20,16 @@ const LoopExample = () => {
     return data;
   };
 
-  if (items.length === 0) {
+  if (itemIds?.length === 0) {
     dispatch(setItems(generateItems()));
   }
 
   return (
     <div className="loop-example--container">
-      {items.length > 0 ? (
+      {itemIds.length > 0 ? (
         <>
-          {items.map((item) => {
-            return (
-              <LoopItem key={`loop-item-${item.id}`} id={item.id} title={item.title} isSelected={item.isSelected} />
-            );
+          {itemIds.map((id) => {
+            return <LoopItem key={`loop-item-${id}`} id={id} />;
           })}
         </>
       ) : (
@@ -44,4 +43,4 @@ LoopExample.propTypes = {};
 
 LoopExample.defaultProps = {};
 
-export default LoopExample;
+export default memo(LoopExample);
